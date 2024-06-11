@@ -8,7 +8,7 @@ import sys
 
 try:
     # input the whole content of a bib file as a very long string
-    bibtexdb = ''.join(open(sys.argv[1], 'r', errors='ignore').readlines())
+    bibtexdb = ''.join(open('citations.bib', 'r', errors='ignore', encoding='utf-8').readlines())
 #    print (bibtexdb)
 except IndexError:
     print("Error: Specify the file to be processed!")
@@ -38,6 +38,6 @@ while(line):
     line = fr.readline()
 
 # write the updated content into a new file
-with open('library_abbreviated.bib', 'w') as outfile:
+with open('citations_abbreviated.bib', 'w', encoding='utf-8') as outfile:
     outfile.write(bibtexdb)
-    print("Bibtex database with abbreviated files saved into 'library_abbreviated.bib'")
+    print("Bibtex database with abbreviated files saved into 'citations_abbreviated.bib'")
